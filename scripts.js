@@ -37,7 +37,6 @@ function convertToMinutes(hour, min, ampm) {
 function calculateHours(timeIn, timeOut) {
     let diff = timeOut - timeIn;
     
-    // Handle shifts that cross midnight
     if (diff < 0) {
         diff += 1440; // Add 24 hours in minutes
     }
