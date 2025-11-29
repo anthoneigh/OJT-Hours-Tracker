@@ -1,0 +1,232 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background: linear-gradient(135deg, #9b5de5 0%, #6a0dad 100%);
+    min-height: 100vh;
+    padding: 20px;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.header {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 30px;
+    margin-bottom: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.header-title {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.header-title h1 {
+    font-size: 2rem;
+    color: #4b0082;
+}
+
+.icon {
+    width: 40px;
+    height: 40px;
+    stroke: #9b5de5;
+    stroke-width: 2;
+    fill: none;
+}
+
+.stats-card {
+    background: linear-gradient(135deg, #9b5de5 0%, #6a0dad 100%);
+    border-radius: 15px;
+    padding: 30px;
+    color: white;
+    margin-bottom: 30px;
+}
+
+.stats-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.stats-item h3 {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    margin-bottom: 5px;
+    font-weight: normal;
+}
+
+.stats-item .large-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.progress-bar {
+    background: rgba(255,255,255,0.2);
+    border-radius: 10px;
+    height: 20px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.progress-fill {
+    background: #ffffff;
+    height: 100%;
+    border-radius: 10px;
+    transition: width 0.5s ease;
+}
+
+.progress-text {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.form-group input, .form-group select {
+    padding: 12px;
+    border: 2px solid #e5e7eb;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: all 0.3s;
+    background: #f9f9ff;
+}
+
+.form-group input:focus, .form-group select:focus {
+    outline: none;
+    border-color: #9b5de5;
+    box-shadow: 0 0 0 3px rgba(155, 93, 229, 0.2);
+}
+
+.time-select {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.btn-submit {
+    background: #9b5de5;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+}
+
+.btn-submit:hover {
+    background: #6a0dad;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(155, 93, 229, 0.3);
+}
+
+.table-container {
+    background: #ffffff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead {
+    background: #f3f0ff;
+}
+
+th {
+    padding: 15px;
+    text-align: left;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #4b0082;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+td {
+    padding: 15px;
+    border-top: 1px solid #e5e5e5;
+}
+
+tbody tr:hover {
+    background: #f3f0ff;
+}
+
+.hours-badge {
+    background: #9b5de5;
+    color: white;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-weight: 600;
+    display: inline-block;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    color: #999;
+}
+
+.empty-state svg {
+    width: 80px;
+    height: 80px;
+    stroke: #ddd;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+    .header-title h1 {
+        font-size: 1.5rem;
+    }
+
+    .stats-item .large-number {
+        font-size: 2rem;
+    }
+
+    .table-container {
+        overflow-x: auto;
+    }
+
+    table {
+        min-width: 800px;
+    }
+}

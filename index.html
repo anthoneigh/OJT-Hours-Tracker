@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OJT Hours Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header-title">
+                <svg class="icon" viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+                <h1>OJT Hours Tracker</h1>
+            </div>
+
+            <div class="stats-card">
+                <div class="stats-header">
+                    <div class="stats-item">
+                        <h3>Total Hours Completed</h3>
+                        <div class="large-number" id="totalHours">0.00</div>
+                    </div>
+                    <div class="stats-item">
+                        <h3>Required Hours</h3>
+                        <div class="large-number" id="requiredHours">486</div>
+                    </div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill" style="width: 0%"></div>
+                </div>
+                <p class="progress-text" id="progressText">0.0% Complete</p>
+            </div>
+
+            <div class="form-grid">
+                <div class="form-group">
+                    <label>Date</label>
+                    <input type="date" id="date" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Time In</label>
+                    <div class="time-select">
+                        <select id="timeInHour" required></select> :
+                        <select id="timeInMin" required></select>
+                        <select id="timeInAMPM" required>
+                            <option>AM</option>
+                            <option>PM</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Time Out</label>
+                    <div class="time-select">
+                        <select id="timeOutHour" required></select> :
+                        <select id="timeOutMin" required></select>
+                        <select id="timeOutAMPM" required>
+                            <option>AM</option>
+                            <option>PM</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group" style="grid-column: 1 / -1;">
+                    <label>Tasks</label>
+                    <input type="text" id="activity" placeholder="What tasks did you accomplish today?" required>
+                </div>
+            </div>
+
+            <button class="btn-submit" onclick="addEntry()">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                </svg>
+                Add Entry
+            </button>
+        </div>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Time In</th>
+                        <th>Time Out</th>
+                        <th>Hours</th>
+                        <th>Tasks done</th>
+                    </tr>
+                </thead>
+                <tbody id="entriesTable">
+                    <tr>
+                        <td colspan="5">
+                            <div class="empty-state">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                                </svg>
+                                <p>No entries yet.</p>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
