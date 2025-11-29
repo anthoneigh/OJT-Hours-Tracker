@@ -200,6 +200,25 @@ tbody tr:hover {
     display: inline-block;
 }
 
+.btn-delete {
+    background: #9b5de5;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-delete:hover {
+    background: #ee5a6f;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 71, 87, 0.3);
+}
+
 .empty-state {
     text-align: center;
     padding: 60px 20px;

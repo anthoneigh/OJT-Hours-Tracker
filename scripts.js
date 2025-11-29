@@ -93,7 +93,7 @@ function renderEntries() {
     const tbody = document.getElementById('entriesTable');
 
     if (entries.length === 0) {
-        tbody.innerHTML = `<tr><td colspan="5"><div class="empty-state"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg><p>No entries yet. Start tracking your OJT hours!</p></div></td></tr>`;
+        tbody.innerHTML = `<tr><td colspan="6"><div class="empty-state"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg><p>No entries yet. Start tracking your OJT hours!</p></div></td></tr>`;
     } else {
         tbody.innerHTML = entries.map(entry => `<tr>
             <td>${entry.date}</td>
@@ -101,10 +101,26 @@ function renderEntries() {
             <td>${entry.timeOut}</td>
             <td><span class="hours-badge">${entry.hours}h</span></td>
             <td>${entry.activity}</td>
+            <td>
+                <button class="btn-delete" onclick="deleteEntry(${entry.id})">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="3 6 5 6 21 6"></polyline>
+                        <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                    </svg>
+                </button>
+            </td>
         </tr>`).join('');
     }
 
     updateProgress();
+}
+
+function deleteEntry(id) {
+    if (confirm('Are you sure you want to delete this entry?')) {
+        entries = entries.filter(entry => entry.id !== id);
+        saveEntries();
+        renderEntries();
+    }
 }
 
 function updateProgress() {
