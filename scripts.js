@@ -35,7 +35,14 @@ function convertToMinutes(hour, min, ampm) {
 }
 
 function calculateHours(timeIn, timeOut) {
-    let diff = (timeOut - timeIn) / 60;
+    let diff = timeOut - timeIn;
+    
+    // Handle shifts that cross midnight
+    if (diff < 0) {
+        diff += 1440; // Add 24 hours in minutes
+    }
+    
+    diff = diff / 60; // Convert to hours
     diff = diff > 1 ? diff - 1 : 0; // deduct 1 hour lunch
     return diff.toFixed(2);
 }
@@ -60,12 +67,13 @@ function addEntry() {
     const timeInMinutes = convertToMinutes(hourIn, minIn, ampmIn);
     const timeOutMinutes = convertToMinutes(hourOut, minOut, ampmOut);
 
-    if (timeOutMinutes <= timeInMinutes) {
-        alert('Time Out must be after Time In.');
+    // Allow overnight shifts
+    const hours = parseFloat(calculateHours(timeInMinutes, timeOutMinutes));
+
+    if (hours <= 0) {
+        alert('Invalid time range. Please check your time entries.');
         return;
     }
-
-    const hours = parseFloat(calculateHours(timeInMinutes, timeOutMinutes));
 
     const entry = {
         id: Date.now(),
